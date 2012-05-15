@@ -1,14 +1,18 @@
+TEX = pdflatex
+PDF = evince
+GS = gs
+
 all: resume
-	evince Resume.pdf > /dev/null &
+	$(PDF) Resume.pdf > /dev/null &
 
 cv: CV.tex
-	pdflatex CV.tex 
+	$(TEX) CV.tex 
 
 motivation: Motivation.tex
-	pdflatex Motivation.tex
+	$(PDF) Motivation.tex
 
 resume: all
-	gs -dNOPAUSE -sDEVICE=pdfwrite -sOUTPUTFILE=Resume.pdf -dBATCH Motivation.pdf CV.pdf
+	$(GS) -dNOPAUSE -sDEVICE=pdfwrite -sOUTPUTFILE=Resume.pdf -dBATCH Motivation.pdf CV.pdf
 
 COMPANY = $(shell sed -ne 's/.*\\company}{\(.*\)\\xspace.*/\1/p' Configuration.tex)
 
