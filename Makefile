@@ -1,5 +1,5 @@
 all: resume
-	evince Resume.pdf > /dev/null
+	evince Resume.pdf > /dev/null &
 
 cv: CV.tex
 	pdflatex CV.tex 
