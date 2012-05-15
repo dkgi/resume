@@ -1,14 +1,19 @@
-all:
-	pdflatex CV.tex && pdflatex Motivation.tex
+all: resume
+	evince Resume.pdf > /dev/null
 
-cv: all
-	evince CV.pdf & > /dev/null
+cv: CV.tex
+	pdflatex CV.tex 
 
-motivation: all
-	evince Motivation.pdf & > /dev/null
+motivation: Motivation.tex
+	pdflatex Motivation.tex
 
-combined: all
+resume: all
 	gs -dNOPAUSE -sDEVICE=pdfwrite -sOUTPUTFILE=Resume.pdf -dBATCH Motivation.pdf CV.pdf
+
+COMPANY = $(shell sed -ne 's/.*\\company}{\(.*\)\\xspace.*/\1/p' Configuration.tex)
+
+email:
+	sed -e s/COMPANY/$(COMPANY)/g Email_in.txt > Email.txt
 
 clean:
 	rm -f *.log Motivation.pdf CV.pdf Resume.pdf
