@@ -9,7 +9,7 @@ cv: CV.tex
 	$(TEX) CV.tex 
 
 motivation: Motivation.tex
-	$(PDF) Motivation.tex
+	$(TEX) Motivation.tex
 
 resume: all
 	$(GS) -dNOPAUSE -sDEVICE=pdfwrite -sOUTPUTFILE=Resume.pdf -dBATCH Motivation.pdf CV.pdf
