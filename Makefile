@@ -11,7 +11,7 @@ cv: CV.tex
 motivation: Motivation.tex
 	$(TEX) Motivation.tex
 
-resume: all
+resume: cv motivation
 	$(GS) -dNOPAUSE -sDEVICE=pdfwrite -sOUTPUTFILE=Resume.pdf -dBATCH Motivation.pdf CV.pdf
 
 COMPANY = $(shell sed -ne 's/.*\\company}{\(.*\)\\xspace.*/\1/p' Configuration.tex)
