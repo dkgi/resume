@@ -3,21 +3,76 @@
 \usepackage{etoolbox}
 
 \newcommand{\correspondence}{% CORRESPONDENCE INFORMATION
-  \include{Personal}  % Not commited
-  %\address{Your address here\\[12pt]}
-  %\address{Your email and url here\\}
+  \address{Dominik Gabi\\ Niderenweg 18\\ CH-9043 Trogen\\ +41 79 789 41 24\\[12pt]}
+  \address{\url{https://github.com/dkgi}\\ \url{dkgiwork@gmail.com}}
 }
 
+% FORMALITIES
+\newcommand{\contact}{COMPANY CONTACT\xspace}
 \newcommand{\company}{COMPANY NAME\xspace}
+\renewcommand{\position}{Entry Level Software Engineer}
+\newcommand{\objective}{\position\ at \company}
 \newcommand{\duration}{DURATION\xspace}
+	
+% Personal correspondence?
+\newtoggle{contact}
+\toggletrue{contact}
+
+% Apply through cds international?
+\newtoggle{cds}
+\togglefalse{cds}				
+
+
 \newcommand{\companyspecific}{% COMPANY SPECIFIC
-  COMPANY SPECIFIC.
+  COMPANY SPECIFIC.\xspace
 }
 
 \newcommand{\applicationspecific}{% APPLICATION SPECIFIC
-  APPLICATION SPECIFIC.
+  APPLICATION SPECIFIC.\xspace
 }
 
-\newtoggle{cds}
-\toggletrue{cds}
+% CURRICULUM VITAE
 
+% Use with \education{title}{year}{description}
+\newcommand{\education}[3]{\textbf{#1} \hfill #2\\#3\\[12pt]}
+
+\newcommand{\educations}{% EDUCATIONS
+		\education{Master of Science in Computer Science}{2011}{
+			Federal Institute of Technology (ETH), Z\"urich\\
+			Thesis: Disjunction on Demand\\
+			Advisers: Prof. Dr. Peter M\"uller, Dr. Pietro Ferrara}
+		\education{Bachelor of Science in Computer Science}{2010}{
+			Federal Institute of Technology (ETH), Z\"urich}
+		\education{High School}{2005}{Kantonsschule, Trogen}
+}
+
+% Use with \experience{title}{description}{url}
+\newcommand{\experience}[3]{\textbf{#1}\\#2\\\url{#3}\\[12pt]}
+
+\newcommand{\experiences}{% EXPERIENCES
+		\experience{Master's Thesis Disjunction on Demand}{My master's thesis introduced the \emph{Trace Partitioning Abstract Domain} into the static analyzer \emph{Sample} that is currently being developed at ETH. This abstract domain allows the analysis to distinguish in a tractable way between specific traces without having to worry about an explosion in complexity.}{http://www.pm.inf.ethz.ch/education/theses/master_completed}
+		\experience{Software Verification Course Project}{I implemented and proved correct a recursive algorithm solving the maximum common sublist problem. The implementation was written in \texttt{C} and proved using the \texttt{VeriFast} program verifier.}{https://github.com/dkgi/sublist-proof}
+		\experience{Concepts of Concurrent Computation Course Project}{In this project I implemented a general framework for concurrent divide and conquer algorithms using the \texttt{SCOOP} framework and demonstrated its functionality with implementations of merge-sort, finding the longest word in a text and finding the two closest points in a two dimensional plane.}{https://github.com/dkgi/divide-and-conquer-scoop}
+}
+
+\newcommand{\interests}{% INTERESTS
+		Software Engineering, Software Architecture, Software Verification, Concurrency, Computer Graphics, Simulation, Functional Programming, Scala, Java, C++
+}
+
+\newcommand{\competentskills}{% COMPETENT SKILLS
+	Scala, Java, C/C++, Matlab
+}
+
+\newcommand{\familiarskills}{% FAMILIAR SKILLS
+	VeriFast, PROMELA/SPIN, C\#, Eiffel
+}
+
+\newcommand{\languages}{% LANGUAGES
+	Fluent in English and German
+}
+
+\newcommand{\reference}[3]{\textbf{#1}\\#2\\[2pt]\url{#3}\\}
+
+\newcommand{\references}{% REFERENCES
+		\reference{Dr. Pietro Ferrara}{Researcher, Federal Institute of Technology, Z\"urich}{pietro.ferrara@inf.ethz.ch}
+}
