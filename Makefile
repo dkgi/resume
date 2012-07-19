@@ -15,6 +15,10 @@ motivation: Motivation.tex
 
 resume: cv motivation
 	$(GS) -dNOPAUSE -sDEVICE=pdfwrite -sOUTPUTFILE=Resume.pdf -dBATCH Motivation.pdf CV.pdf
+	
+application: resume 
+	$(GS) -dNOPAUSE -sDEVICE=pdfwrite -sOUTPUTFILE=Application.pdf -dBATCH Resume.pdf ../Transcript\ Bachelor.pdf ../Transcript\ Master.pdf
+
 
 COMPANY = $(shell sed -ne 's/.*\\company}{\(.*\)\\xspace.*/\1/p' Configuration.tex)
 
