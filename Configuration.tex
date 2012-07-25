@@ -10,13 +10,17 @@
 % FORMALITIES
 \newcommand{\contact}{COMPANY CONTACT\xspace}
 \newcommand{\company}{COMPANY NAME\xspace}
-\renewcommand{\position}{POSITION}
-\newcommand{\objective}{\position\ at \company}
+\renewcommand{\position}{POSITION\xspace}
+\newcommand{\objective}{\position\ at \company\xspace}
 \newcommand{\duration}{DURATION\xspace}
+
+% Internship?
+\newtoggle{internship}
+\togglefalse{internship}
 	
 % Personal correspondence?
 \newtoggle{contact}
-\toggletrue{contact}
+\togglefalse{contact}
 
 % Apply through cds international?
 \newtoggle{cds}
